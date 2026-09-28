@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otakuria Companion</title>
+  <style>
+    /* Material Design 3 Design System */
+    :root {
+      /* M3 Light Theme */
+      --md-sys-color-background: #f8fafd;
+      --md-sys-color-on-background: #1f1f1f;
+      --md-sys-color-surface: #ffffff;
+      --md-sys-color-surface-container-low: #f0f4f9;
+      --md-sys-color-surface-container: #e9eef6;
+      --md-sys-color-surface-container-high: #e1e7f0;
+      --md-sys-color-surface-container-highest: #d9e2ec;
+      --md-sys-color-primary: #0b57d0;
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-primary-container: #d3e3fd;
+      --md-sys-color-on-primary-container: #041e49;
+      --md-sys-color-secondary-container: #c2e7ff;
+      --md-sys-color-on-secondary-container: #001d35;
+      --md-sys-color-outline: #747775;
+      --md-sys-color-outline-variant: #c4c7c5;
+      --md-sys-color-success: #137333;
+      --md-sys-color-success-container: #c4eed0;
+      --md-sys-color-on-success-container: #072711;
+      --md-sys-color-error: #ba1a1a;
+      --md-sys-color-error-container: #ffdad6;
+      --md-sys-color-text-secondary: #444746;
+      --md-sys-shadow-1: 0 1px 3px 1px rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+      --md-sys-shadow-2: 0 2px 6px 2px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.16);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* M3 Dark Theme */
+        --md-sys-color-background: #111318;
+        --md-sys-color-on-background: #e2e2e9;
+        --md-sys-color-surface: #191c20;
+        --md-sys-color-surface-container-low: #1d2024;
+        --md-sys-color-surface-container: #282a2f;
+        --md-sys-color-surface-container-high: #33353a;
+        --md-sys-color-surface-container-highest: #3e4146;
+        --md-sys-color-primary: #a8c7fa;
+        --md-sys-color-on-primary: #041e49;
+        --md-sys-color-primary-container: #0842a0;
+        --md-sys-color-on-primary-container: #d3e3fd;
+        --md-sys-color-secondary-container: #004a77;
+        --md-sys-color-on-secondary-container: #c2e7ff;
+        --md-sys-color-outline: #8e918f;
+        --md-sys-color-outline-variant: #44474e;
+        --md-sys-color-success: #6dd58c;
+        --md-sys-color-success-container: #0f5223;
+        --md-sys-color-on-success-container: #c4eed0;
+        --md-sys-color-error: #ffb4ab;
+        --md-sys-color-error-container: #93000a;
+        --md-sys-color-text-secondary: #c4c7c5;
+        --md-sys-shadow-1: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
+        --md-sys-shadow-2: 0 4px 8px 3px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      width: 340px;
+      background: var(--md-sys-color-background);
+      color: var(--md-sys-color-on-background);
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.4;
+      user-select: none;
+    }
+
+    /* M3 Top Bar */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: var(--md-sys-shadow-1);
+      display: block;
+    }
+
+    .title-group h1 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.1px;
+      color: var(--md-sys-color-on-background);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .version-tag {
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-text-secondary);
+      padding: 2px 6px;
+      border-radius: 9999px;
+    }
+
+    .title-group p {
+      font-size: 11px;
+      color: var(--md-sys-color-text-secondary);
+    }
+
+    /* M3 Status Badge (Chip) */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: var(--md-sys-color-success-container);
+      color: var(--md-sys-color-on-success-container);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--md-sys-color-success);
+      box-shadow: 0 0 6px var(--md-sys-color-success);
+      animation: m3-pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes m3-pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.5; }
+    }
+
+    /* M3 Filled Card */
+    .m3-card {
+      background: var(--md-sys-color-surface);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid var(--md-sys-color-outline-variant);
+      box-shadow: var(--md-sys-shadow-1);
+    }
+
+    .info-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .info-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.2;
+    }
+
+    .info-text strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--md-sys-color-on-background);
+      margin-bottom: 2px;
+    }
+
+    .info-text span {
+      display: block;
+      font-size: 11px;
+      color: var(--md-sys-color-text-secondary);
+      line-height: 1.35;
+    }
+
+    /* M3 Buttons */
+    .button-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .m3-btn {
+      width: 100%;
+      height: 40px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .m3-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2.2;
+    }
+
+    .m3-btn-primary {
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      box-shadow: var(--md-sys-shadow-1);
+    }
+
+    .m3-btn-primary:hover {
+      box-shadow: var(--md-sys-shadow-2);
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .m3-btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .m3-btn-tonal {
+      background: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-background);
+    }
+
+    .m3-btn-tonal:hover {
+      background: var(--md-sys-color-surface-container-high);
+      transform: translateY(-1px);
+    }
+
+    .m3-btn-tonal:active {
+      transform: scale(0.98);
+    }
+
+    /* M3 Diagnostic Card */
+    .status-card {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: var(--md-sys-color-surface-container-low);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      font-size: 11px;
+      color: var(--md-sys-color-on-background);
+      display: none;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .status-card.success {
+      display: block;
+      background: var(--md-sys-color-success-container);
+      color: var(--md-sys-color-on-success-container);
+      border-color: transparent;
+    }
+
+    .status-card.error {
+      display: block;
+      background: var(--md-sys-color-error-container);
+      color: var(--md-sys-color-error);
+      border-color: transparent;
+    }
+
+    .status-card.info {
+      display: block;
+      background: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      border-color: transparent;
+    }
+
+    /* Footer Note */
+    .footer {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 10px;
+      color: var(--md-sys-color-text-secondary);
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="top-bar">
+    <div class="brand">
+      <img src="icon128.png" alt="Otakuria" class="brand-logo" />
+      <div class="title-group">
+        <h1>Otakuria <span class="version-tag">v1.0.0</span></h1>
+        <p>Conector Web Oficial</p>
+      </div>
+    </div>
+    <div class="status-badge">
+      <span class="badge-dot"></span>
+      Activo
+    </div>
+  </div>
+
+  <!-- Status & Info Card -->
+  <div class="m3-card">
+    <div class="info-content">
+      <div class="info-icon">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <div class="info-text">
+        <strong>Conexión Activa</strong>
+        <span>Sincronización fluida con la plataforma de lectura de Otakuria.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="button-stack">
+    <button id="btnOpenOtakuria" class="m3-btn m3-btn-primary">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+      </svg>
+      <span>Abrir Otakuria Web</span>
+    </button>
+    <button id="btnTest" class="m3-btn m3-btn-tonal">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+      </svg>
+      <span>Probar Conexión</span>
+    </button>
+  </div>
+
+  <!-- Status / Diagnostics Card -->
+  <div id="statusBox" class="status-card"></div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Otakuria &bull; Material Design 3 Companion
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
