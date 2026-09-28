@@ -10,7 +10,7 @@ Instalar la extensión toma menos de 1 minuto siguiendo estos sencillos pasos:
 
 ### Descargar y Descomprimir
 1. Descarga el archivo [`otakuria-companion-v1.0.0.zip`](https://github.com/xSrMat/Otakuria-extension/releases/download/otakuria-extension/otakuria-companion-v1.0.0.zip).
-2. Haz clic derecho sobre el archivo descargado y selecciona **"Extraer todo..."** (o utiliza tu descompresor preferido como 7-Zip / WinRAR).
+2. Haz clic derecho sobre el archivo descargado y selecciona **"Extraer en otakuria-companion-v1.0.0"** o crea una carpeta, abres el archivos y pasas los archivos a esa carpeta (o utiliza tu descompresor preferido como 7-Zip / WinRAR).
 3. Guarda la carpeta extraída en un lugar seguro (por ejemplo, en tus Documentos o en una carpeta de herramientas).  
    > ⚠️ **Importante:** No borres ni muevas esa carpeta después de instalarla, ya que el navegador la cargará desde esa ubicación.
 
@@ -26,7 +26,7 @@ Abre una pestaña nueva y escribe en la barra de direcciones según tu navegador
 
 ### Cargar la Extensión
 1. Haz clic en el botón **"Cargar descomprimida"** (Load unpacked) que aparecerá en la parte superior izquierda.
-2. Selecciona la carpeta que descomprimiste en el **Paso 1** (la carpeta donde se encuentra directamente el archivo `manifest.json`).
+2. Selecciona la carpeta donde estan los archivos de la extensión.
 3. ¡Listo! Verás la extensión **Otakuria Companion** instalada y lista en tu lista de extensiones.
 
 ### Conectar con Otakuria
