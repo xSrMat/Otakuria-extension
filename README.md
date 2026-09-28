@@ -1,16 +1,6 @@
 # Otakuria Companion - Extensión Oficial de Navegador
 
-Extensión oficial para navegadores Chromium (Chrome, Brave, Edge, Opera) diseñada para conectar directamente tu navegador con la plataforma web de **[Otakuria](https://github.com/xSrMat/otakuria-website)**.
-
----
-
-## Descarga Directa (.ZIP)
-
-Puedes descargar la extensión lista para usar con un solo clic:
-
-**[Descargar otakuria-companion-v1.0.0.zip](https://github.com/xSrMat/Otakuria-extension/raw/main/otakuria-companion-v1.0.0.zip)**
-
-*(También puedes hacer clic directamente en el archivo `otakuria-companion-v1.0.0.zip` en la lista de archivos de este repositorio y presionar el botón **Download**).*
+Extensión oficial para navegadores Chromium (Chrome, Brave, Edge, Opera) diseñada para conectar directamente tu navegador con la plataforma web de **[Otakuria](https://otakuria.com)**.
 
 ---
 
@@ -19,7 +9,7 @@ Puedes descargar la extensión lista para usar con un solo clic:
 Instalar la extensión toma menos de 1 minuto siguiendo estos sencillos pasos:
 
 ### Descargar y Descomprimir
-1. Descarga el archivo [`otakuria-companion-v1.0.0.zip`](https://github.com/xSrMat/Otakuria-extension/raw/main/otakuria-companion-v1.0.0.zip).
+1. Descarga el archivo [`otakuria-companion-v1.0.0.zip`](https://github.com/xSrMat/Otakuria-extension/releases/download/otakuria-extension/otakuria-companion-v1.0.0.zip).
 2. Haz clic derecho sobre el archivo descargado y selecciona **"Extraer todo..."** (o utiliza tu descompresor preferido como 7-Zip / WinRAR).
 3. Guarda la carpeta extraída en un lugar seguro (por ejemplo, en tus Documentos o en una carpeta de herramientas).  
    > ⚠️ **Importante:** No borres ni muevas esa carpeta después de instalarla, ya que el navegador la cargará desde esa ubicación.
