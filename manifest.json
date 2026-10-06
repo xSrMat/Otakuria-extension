@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Otakuria Companion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Conector oficial de navegador para Otakuria. Permite la sincronización y asistencia de lectura en la plataforma web de Otakuria.",
   "icons": {
     "16": "icon16.png",
